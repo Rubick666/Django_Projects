@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ product.name }} - Product Detail</title>
+</head>
+<body>
+	<h1>{{ product.name }} - Product Detail</h1>
+	
+	<div>
+		<img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+	</div>
+	<h2>{{ product.name }}</h2>
+	<p>{{ product.description }}</p>
+	<p>Price: ${{ product.price }}</p>
+	
+	<a href="{% url 'product_list' %}">Back to Product List</a>
+</body>
+</html>

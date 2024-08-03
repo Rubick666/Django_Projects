@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		#calculator {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		h2 {
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		button {
+			padding: 10px;
+			color: black;
+			border: none;
+			font-size: 13px;
+			font-weight: bold;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		a {
+			color: black;
+		}
+	</style>
+
+
+	<div id="calculator">
+		<br>
+
+		<h2 style="text-align: center;">Edit Subject</h2>
+		<br>
+		<form method="post" action="{% url 'edit_subject' subject_id=subject_id %}">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<button type="submit">Save Changes</button>
+		</form>
+		<br>
+		<button><a href="{% url 'cgpa_calculator' %}">Cancel</a></button>
+
+	</div>
+</body>
+
+</html>
