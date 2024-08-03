@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+</style>
+
+
+<div class="container mt-5 col-5">
+
+<form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+
+	
+	<div class="form-group">
+	<label for="exampleInputEmail1">Day-Time </label>
+	<input type="text" name="day" value="{{recipe.day}}" required>
+	</div>
+	<div class="form-group">
+	<label for="exampleInputEmail1">Recipe </label>
+	<input name="name" type="text" value="{{recipe.description}}"
+		required>
+
+	</div>
+	<div class="form-group">
+	<label for="exampleInputPassword1">Description </label>
+		<textarea name="description" type="text" rows="5" cols="30" value="{{recipe.description}}"></textarea>
+	<br> 
+	<br>
+
+	<button type="submit" >Update Data</button>
+</form>
+
+
+</div>
+
+{% endblock %}

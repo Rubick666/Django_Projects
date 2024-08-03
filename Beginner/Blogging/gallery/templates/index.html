@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Website</title>
+	<!-- Add Bootstrap CSS link here -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-5">
+		<h1>Today's New Blogs</h1>
+		<div class="row">
+			{% for product in products %}
+				<div class="col-md-4 mb-4">
+					<div class="card">
+						<a href="{% url 'product_detail' product.pk %}">
+							<img src="{{ product.image.url }}" alt="{{ product.created_name }}" class="card-img-top">
+						</a>
+						<div class="card-body">
+							<h5 class="card-title">{{ product.name }}</h5>
+							<p class="card-text">{{ product.short_description }}</p>
+							<a href="{% url 'edit_product' product.pk %}">Edit</a>
+							<a href="{% url 'delete_product' product.pk %}">Delete</a> <br>
+							<small class="card-text">Created at: {{ product.created_at }}</small> <br>
+							<small class="card-text">Updated at: {{ product.updated_at }}</small>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<!-- Add Bootstrap JS and jQuery scripts here (if needed) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

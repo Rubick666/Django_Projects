@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.ok{
+	color: white;
+	text-decoration: none;
+}
+.ok:hover{
+	color: white;
+	text-decoration: none;
+}
+
+</style>
+
+<div class="container mt-3 col-6">
+<br><br>
+	<form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h4> Recipe </h4>
+		<hr>
+		<div class="form-group">
+		<label for="exampleInputEmail1">Day-Time </label>
+		<input type="text" name="day" required>
+		</div>
+		<div class="form-group">
+		<label for="exampleInputEmail1">Recipe </label>
+		<input name="name" type="text" required>
+		
+		
+		</div>
+		<div class="form-group">
+		<label for="exampleInputPassword1">Description </label>
+		<!-- <input name="description" type="text" rows="10" cols="50" required> -->
+
+		<textarea name="description" type="text" rows="5" cols="30"></textarea>
+		</div>
+		<button type="submit" class="">Add Data</button>
+	</form>
+	<hr>
+	<div class="class mt-5">
+		<form action="">
+		<button > <a href="{% url 'pdf' %}">Generate Plan </a></button>
+		</form>
+
+		<table class="table mt-6">
+			<thead>
+				<tr>
+					<th scope="col">S.No. </th>
+					<th scope="col">Day-Time </th>
+					<th scope="col">Recipe Name </th>
+					<th scope="col">Description </th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for recipe in recipes %}
+				<tr>
+					<th scope="row">{{forloop.counter}}</th>
+					<td>{{recipe.day}}</td>
+					<td> {{recipe.name}}</td>
+					<td>{{recipe.description}}</td>
+					<td>
+						<a href="/delete/{{recipe.id }}" >Delete </a>
+						<a href="/update/{{recipe.id }}">Update </a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+	{% endblock %}

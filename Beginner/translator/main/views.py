@@ -1,0 +1,13 @@
+from django.shortcuts import render
+from translate import Translator
+from django.http import HttpResponse
+# Create your views here.
+
+def home(request):
+    if request.method == "POST":
+        text = request.POST['translate']
+        language = request.POST['language']
+        translator = Translator(to_lang=language)
+        translation = translator.translate(text=text)
+        return HttpResponse(translation)
+    return render(request, 'index.html')

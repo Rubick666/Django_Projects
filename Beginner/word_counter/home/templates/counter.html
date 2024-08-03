@@ -1,0 +1,29 @@
+{% if i %} 
+<div class="mb-2" style="border-style: groove;border-radius: 10px;"> 
+<div class="card-header"> 
+	<p class="m-0" style="font-size: 20px;">{{word}} Word's in that text</p> 
+
+
+</div> 
+</div> 
+{% endif %} 
+
+<div class="col-12 pb-3" style="background-color: #c2d6d6; border: 2px; border-style: groove; border-radius: 10px;"> 
+<form action="counter" method="POST"> {% csrf_token %} 
+	<div class="form-group"> 
+	<label for="text1">Paste you're text</label> 
+	<textarea class="form-control" placeholder="Paste you're text here to count word and character"
+				name="texttocount" id="text1" rows="8" style="background-color: #f0f5f5;">{{text}}</textarea> 
+	</div> 
+	
+	<!-- ads section start-->
+	<div class="text-center"> 
+	ads 
+	</div> 
+	
+	<!-- ads section end -->
+	<div class="form-group text-center"> 
+	<button type="submit" class="btn btn-primary w-25" >Run Counter</button> 
+	</div> 
+</form> 
+</div>
