@@ -40,3 +40,18 @@ print ("Variance score is: ", reg.score(test_X, test_y))
 
 # plt.plot(train_X[:, 0], reg.coef_[0][0] * train_X[:, 0] + reg.coef_[0][1]*train_X[:, 1] + reg.coef_[0][2]*train_X[:, 2] + reg.intercept_[0], '.-r')
 # plt.show()
+
+'''
+reg = linear_model.LinearRegression()
+train_X = np.asanyarray(train[["ENGINESIZE", "CYLINDERS", "FUELCONSUMPTION_CITY", "FUELCONSUMPTION_HWY"]])
+train_y = np.asanyarray(train[["CO2EMISSIONS"]])
+reg.fit(train_X, train_y)
+print ("Coefficients: ", reg.coef_)
+print ("Intercept: ", reg.intercept_)
+
+
+test_X = np.asanyarray(test[["ENGINESIZE", "CYLINDERS", "FUELCONSUMPTION_CITY", "FUELCONSUMPTION_HWY"]])
+test_y = np.asanyarray(test[["CO2EMISSIONS"]])
+test_y_ = reg.predict(test[["ENGINESIZE", "CYLINDERS", "FUELCONSUMPTION_CITY", "FUELCONSUMPTION_CITY"]])
+print ("Variance score is: ", reg.score(test_X, test_y))
+'''
