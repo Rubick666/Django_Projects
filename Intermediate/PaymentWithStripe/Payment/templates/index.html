@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خرید از استرایپ</title>
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
     <h1>خرید از استرایپ</h1>
-    
-    <!-- جدول قیمت‌گذاری استرایپ -->
-    <stripe-pricing-table 
-        pricing-table-id="prctbl_1Px1qPRu9ZyK2FIX8wqL2oF8"
-        publishable-key="pk_test_51Px0WZRu9ZyK2FIXSvt9ho0OtpGcKKHsoQd8CuordAi7aGFM1JrdZihhA5oE97tzLVJYruEmomi3FOvflD2r8apd00CtYWhBnK">
-    </stripe-pricing-table>
 
-    <script>
-        // در اینجا می‌توانید هر کدی که نیاز دارید اضافه کنید
-    </script>
+    {% csrf_token %}
+
+    <!-- دکمه خرید استرایپ -->
+    <stripe-buy-button
+        buy-button-id="buy_btn_1PxAAwRu9ZyK2FIXdOHFZaeo"
+        publishable-key="pk_test_51Px0WZRu9ZyK2FIXSvt9ho0OtpGcKKHsoQd8CuordAi7aGFM1JrdZihhA5oE97tzLVJYruEmomi3FOvflD2r8apd00CtYWhBnK">
+    </stripe-buy-button>
+
 </body>
 </html>

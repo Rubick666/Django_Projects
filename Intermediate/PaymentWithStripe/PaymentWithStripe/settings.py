@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-5=6^w1+q$^wrl4%n25_vpab$9pt9k_faw7u1@(1nynmhmy=t*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '7743-5-209-165-168.ngrok-free.app',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -59,6 +62,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.csrf',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -126,3 +130,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_TEST_PUBLIC_KEY = 'pk_test_51Px0WZRu9ZyK2FIXSvt9ho0OtpGcKKHsoQd8CuordAi7aGFM1JrdZihhA5oE97tzLVJYruEmomi3FOvflD2r8apd00CtYWhBnK'
 STRIPE_TEST_SECRET_KEY = 'sk_test_51Px0WZRu9ZyK2FIXXcjuvAE0o5GoPmosio87ejD6vTDwbyv8orS5c2eAapuciqUNrrBxnNrp6p9FLvtZ1d7Oa52I009mc3FG9f'
+STRIPE_WEBHOOK_SECRET = 'whsec_2BnYsY8tMzfWrsWHePTt6bodQQh3T5zj'
+
+CSRF_COOKIE_SECURE = True  # اگر از HTTPS استفاده می‌کنید
+CSRF_COOKIE_HTTPONLY = False  # اجازه دسترسی JavaScript به کوکی CSRF
+CSRF_USE_SESSIONS = False  # استفاده از کوکی به جای session
+CSRF_COOKIE_SAMESITE = 'Lax'  # یا 'None' اگر از cross-site requests استفاده می‌کنید
